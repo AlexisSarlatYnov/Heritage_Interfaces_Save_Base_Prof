@@ -10,6 +10,7 @@ namespace HeritageEtInterface
     {
         static void Main(string[] args)
         {
+            //coucou
             Character Simon = new Character("Simon",100,100,50,100,200,2);
             Character Hector = new Character("Hector", 75,125,25,125,200,2);
             Character Pierre = new Character("Pierre", 125, 75, 25, 125, 200, 2);
