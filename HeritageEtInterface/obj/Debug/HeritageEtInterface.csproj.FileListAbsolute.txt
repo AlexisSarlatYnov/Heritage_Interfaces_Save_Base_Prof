@@ -5,3 +5,10 @@ C:\Users\Adrien\source\repos\HeritageEtInterface\HeritageEtInterface\bin\Debug\H
 C:\Users\Adrien\source\repos\HeritageEtInterface\HeritageEtInterface\bin\Debug\HeritageEtInterface.pdb
 C:\Users\Adrien\source\repos\HeritageEtInterface\HeritageEtInterface\obj\Debug\HeritageEtInterface.exe
 C:\Users\Adrien\source\repos\HeritageEtInterface\HeritageEtInterface\obj\Debug\HeritageEtInterface.pdb
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\bin\Debug\HeritageEtInterface.exe.config
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\bin\Debug\HeritageEtInterface.exe
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\bin\Debug\HeritageEtInterface.pdb
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\obj\Debug\HeritageEtInterface.csprojAssemblyReference.cache
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\obj\Debug\HeritageEtInterface.csproj.CoreCompileInputs.cache
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\obj\Debug\HeritageEtInterface.exe
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\obj\Debug\HeritageEtInterface.pdb

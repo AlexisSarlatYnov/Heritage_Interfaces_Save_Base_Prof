@@ -10,14 +10,34 @@ namespace HeritageEtInterface
     {
         static void Main(string[] args)
         {
+            //ProgramProf();
+            TestGuerrierInit();
+        }
+
+        public static void ProgramProf()
+        {
             //coucou
-            Character Simon = new Character("Simon",100,100,50,100,200,2);
-            Character Hector = new Character("Hector", 75,125,25,125,200,2);
+            Character Simon = new Character("Simon", 100, 100, 50, 100, 200, 2);
+            Character Hector = new Character("Hector", 75, 125, 25, 125, 200, 2);
             Character Pierre = new Character("Pierre", 125, 75, 25, 125, 200, 2);
             Character Paul = new Character("Paul", 50, 50, 50, 75, 200, 4);
-            List<Character> characters = new List<Character> { Simon, Hector, Pierre, Paul};
-            FightManager fightManager = new FightManager(characters,0);
+            List<Character> characters = new List<Character> { Simon, Hector, Pierre, Paul };
+            FightManager fightManager = new FightManager(characters, 0);
             fightManager.StartCombat();
+            Console.ReadLine();
+        }
+
+        public static void TestGuerrierInit()
+        {
+            //coucou
+            Guerrier Simon = new Guerrier("Simon", 2);
+            Guerrier Hector = new Guerrier("Hector", 2);
+            Guerrier Pierre = new Guerrier("Pierre", 2);
+            Guerrier Paul = new Guerrier("Paul", 4);
+            List<Character> characters = new List<Character> { Simon, Hector, Pierre, Paul };
+            FightManager fightManager = new FightManager(characters, 0);
+            fightManager.StartCombat();
+            Console.ReadLine();
         }
     }
 }

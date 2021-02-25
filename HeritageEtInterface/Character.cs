@@ -30,6 +30,34 @@ namespace HeritageEtInterface
 
         protected Random random;
 
+        public Character()
+        {
+            Name = "Alexis";
+            Attack = 0;
+            Defense = 0;
+            Initiative = 0;
+            Damages = 0;
+            MaxLife = 0;
+            MaxAttackNumber = 0;
+            this.random = new Random(NameToInt() + (int)DateTime.Now.Ticks);
+
+            Reset();
+        }
+
+        public Character(string name, int maxAttackNumber)
+        {
+            Name = name;
+            Attack = 0;
+            Defense = 0;
+            Initiative = 0;
+            Damages = 0;
+            MaxLife = 0;
+            MaxAttackNumber = maxAttackNumber;
+            this.random = new Random(NameToInt() + (int)DateTime.Now.Ticks);
+
+            Reset();
+        }
+
         public Character(string name, int attack, int defense, int initiative, int damages, int maxLife, int maxAttackNumber)
         {
             Name = name;
@@ -133,6 +161,10 @@ namespace HeritageEtInterface
             {
                 canAttack = false;
                 MyLog(Name + " est mort.");
+            }
+            else
+            {
+                //douleur et perte de capacité à se battre
             }
         }
 
