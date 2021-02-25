@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HeritageEtInterface
 {
@@ -27,6 +24,7 @@ namespace HeritageEtInterface
         public int CurrentLife;
         public int CurrentInitiative;
         public int CurrentAttackNumber;
+        public int CurrentAttackLoose = -1;
 
         public bool canAttack = true;
         public int MaxAttackNumber;
@@ -81,7 +79,7 @@ namespace HeritageEtInterface
             MaxLife = maxLife;
             MaxAttackNumber = maxAttackNumber;
             this.random = new Random(NameToInt() + (int)DateTime.Now.Ticks);
-            
+
             Reset();
         }
 
@@ -107,7 +105,7 @@ namespace HeritageEtInterface
 
         public int RollDice()
         {
-            return random.Next(1,101);
+            return random.Next(1, 101);
         }
 
         public int NameToInt()
@@ -130,7 +128,7 @@ namespace HeritageEtInterface
         {
             CurrentAttackNumber--;
             MyLog(Name + " attaque " + target.Name + ".");
-            target.Defend(Attack+RollDice(), Damages, this, true);
+            target.Defend(Attack + RollDice(), Damages, this, true);
         }
 
         public void Defend(int _attackValue, int _damage, Character _attacker, bool canBeCountered)
@@ -185,7 +183,30 @@ namespace HeritageEtInterface
             }
             else
             {
-                
+                if (this.isUndead == false && this.CurrentLife < _damages && this.CurrentAttackLoose == -1)
+                {
+                    int chanceDePasAttaquer = (_damages - this.CurrentLife) * 2 / (this.CurrentLife + _damages) * 100;
+                    int percentLostAttack = random.Next(1, 101);
+                    if(percentLostAttack < chanceDePasAttaquer)
+                    {
+                        CurrentAttackLoose = random.Next(0, 3);
+                        switch (CurrentAttackLoose)
+                        {
+                            case 0:
+                                Console.WriteLine(this.Name + " ne peut plus attaquer pour ce round !");
+                                break;
+                            case 1:
+                                Console.WriteLine(this.Name + " ne peut plus attaquer pour ce round et celui d'après !");
+                                break;
+                            case 2:
+                                Console.WriteLine(this.Name + " ne peut plus attaquer pour ce round et les 2 d'après!");
+                                break;
+                            default:
+                                Console.WriteLine("Tu as atteri en case default !");
+                                break;
+                        }
+                    }
+                }
             }
         }
 
@@ -216,6 +237,18 @@ namespace HeritageEtInterface
             {
                 MyLog(Name + " n'a pas trouvé de cible valide");
                 CurrentAttackNumber = 0;
+            }
+        }
+
+        public void SetCurrentAttackLoose()
+        {
+            if(this.CurrentAttackLoose > -1)
+            {
+                this.CurrentAttackLoose--;
+                if(this.CurrentAttackLoose == -1)
+                {
+                    Console.WriteLine(this.Name + " peut réattaquer !");
+                }
             }
         }
 

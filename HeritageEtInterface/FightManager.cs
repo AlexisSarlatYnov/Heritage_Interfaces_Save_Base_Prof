@@ -65,7 +65,7 @@ namespace HeritageEtInterface
                 //si le personnage peut attaquer et qu'il est vivant
                 if (currentPersonnage.canAttack && currentPersonnage.CurrentAttackNumber > 0 && currentPersonnage.CurrentLife > 0)
                 {
-                    while (currentPersonnage.CurrentAttackNumber > 0 && currentPersonnage.canAttack)
+                    while (currentPersonnage.CurrentAttackNumber > 0 && currentPersonnage.canAttack && currentPersonnage.CurrentAttackLoose == -1)
                     {
                         //choisir une cible puis attaquer
                         currentPersonnage.SelectTargetAndAttack();
@@ -88,6 +88,13 @@ namespace HeritageEtInterface
                 {
                     charactersList.Remove(currentPersonnage);
                 }
+            }
+
+            foreach (Character p in charactersList)
+            {
+
+                p.SetCurrentAttackLoose();
+
             }
 
             MyLog("---------- Fin du round ----------");
