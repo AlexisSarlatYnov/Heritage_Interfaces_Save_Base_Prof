@@ -16,6 +16,13 @@ namespace HeritageEtInterface
         public int Damages;
         public int MaxLife;
 
+        public bool isUndead;
+        public bool hitRadiantDamages;
+        public bool hitNecroticDamages;
+        public bool isBlessed;
+        public bool isDamned;
+        public bool isTokyoGhoul;
+
         public int CurrentCounterBonus;
         public int CurrentLife;
         public int CurrentInitiative;
@@ -52,6 +59,12 @@ namespace HeritageEtInterface
             Initiative = 0;
             Damages = 0;
             MaxLife = 0;
+            isUndead = false;
+            hitRadiantDamages = false;
+            hitNecroticDamages = false;
+            isBlessed = false;
+            isDamned = false;
+            isTokyoGhoul = false;
             MaxAttackNumber = maxAttackNumber;
             this.random = new Random(NameToInt() + (int)DateTime.Now.Ticks);
 
@@ -131,6 +144,14 @@ namespace HeritageEtInterface
                 MyLog(Name + " se defend mais encaisse quand même le coup.");
                 //on calcule les dégâts finaux
                 int finalDamages = (int)(AttaqueMargin * _damage / 100f);
+                if (this.isBlessed == true && _attacker.hitNecroticDamages == true)
+                {
+                    finalDamages = finalDamages * 2;
+                }
+                if (this.isDamned == true && _attacker.hitRadiantDamages == true)
+                {
+                    finalDamages = finalDamages * 2;
+                }
                 TakeDamages(finalDamages);
             }
             else
@@ -164,7 +185,7 @@ namespace HeritageEtInterface
             }
             else
             {
-                //douleur et perte de capacité à se battre
+                
             }
         }
 

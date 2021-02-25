@@ -16,6 +16,12 @@ namespace HeritageEtInterface
             Initiative = 50;
             Damages = 100;
             MaxLife = 200;
+            isUndead = false;
+            hitRadiantDamages = false;
+            hitNecroticDamages = false;
+            isBlessed = false;
+            isDamned = false;
+            isTokyoGhoul = false;
             MaxAttackNumber = maxAttackNumber;
             this.random = new Random(NameToInt() + (int)DateTime.Now.Ticks);
         }
