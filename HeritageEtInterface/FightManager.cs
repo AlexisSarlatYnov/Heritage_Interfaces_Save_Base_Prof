@@ -67,6 +67,8 @@ namespace HeritageEtInterface
                 {
                     while (currentPersonnage.CurrentAttackNumber > 0 && currentPersonnage.canAttack && currentPersonnage.CurrentAttackLoose == -1)
                     {
+                        Console.WriteLine("Appuyez sur une touche pour la prochaine attaque !");
+                        Console.ReadKey();
                         //choisir une cible puis attaquer
                         currentPersonnage.SelectTargetAndAttack();
                     }
