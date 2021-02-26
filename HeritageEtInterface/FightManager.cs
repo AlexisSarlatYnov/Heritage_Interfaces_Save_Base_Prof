@@ -77,6 +77,16 @@ namespace HeritageEtInterface
                 }
             }
 
+            int nbMorts = 0;
+
+            foreach (Character p in charactersList)
+            {
+                if(p.CurrentLife <= 0)
+                {
+                    nbMorts++;
+                }
+            }
+
             //on fait une deuxième boucle sur les personnage pour retirer les morts de la liste
             //on fait cette boucle de la fin vers le début pour éviter les problèmes que l'on rencontre quand on modifie 
             //une liste sur laquelle on est en train d'itérer
@@ -94,6 +104,22 @@ namespace HeritageEtInterface
             {
 
                 p.SetCurrentAttackLoose();
+                if(p.isTokyoGhoul == true && nbMorts > 0)
+                {
+                    Random rand = new Random();
+                    for (int i = 0; i < nbMorts; i++)
+                    {
+                        int pvRecup = rand.Next(50, 101);
+                        p.CurrentLife = p.CurrentLife + pvRecup;
+                        Console.WriteLine(p.Name + " a recup " + pvRecup.ToString() + " pvs car c'est un charognard !");
+                    }
+                    if(p.CurrentLife >= p.MaxLife)
+                    {
+                        p.CurrentLife = p.MaxLife;
+                        Console.WriteLine(p.Name + " a recup toute sa vie car c'est un charognard !");
+                    }
+                    
+                }
 
             }
 

@@ -46,6 +46,7 @@
     <Compile Include="CharacInterface.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="FightManager.cs" />
+    <Compile Include="Gardien.cs" />
     <Compile Include="Guerrier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
