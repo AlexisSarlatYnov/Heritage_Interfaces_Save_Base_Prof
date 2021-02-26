@@ -12,3 +12,6 @@ C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_Co
 C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\obj\Debug\HeritageEtInterface.csproj.CoreCompileInputs.cache
 C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\obj\Debug\HeritageEtInterface.exe
 C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\obj\Debug\HeritageEtInterface.pdb
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\bin\Debug\Newtonsoft.Json.dll
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\bin\Debug\Newtonsoft.Json.xml
+C:\Users\alexi\Desktop\C# Avancé\Héritage_Interface_Save\Heritage_Interface_CodeBase\HeritageEtInterface\obj\Debug\HeritageEtInterface.csproj.CopyComplete

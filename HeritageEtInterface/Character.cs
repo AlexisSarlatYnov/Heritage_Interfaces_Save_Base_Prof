@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace HeritageEtInterface
@@ -29,6 +30,7 @@ namespace HeritageEtInterface
         public bool canAttack = true;
         public int MaxAttackNumber;
 
+        [JsonIgnore]
         public FightManager fightManager;
 
         public ConsoleColor color = ConsoleColor.White;
@@ -251,6 +253,8 @@ namespace HeritageEtInterface
                 }
             }
         }
+
+        
 
         public void MyLog(string text)
         {

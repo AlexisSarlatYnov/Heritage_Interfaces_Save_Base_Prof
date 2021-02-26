@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +10,13 @@ namespace HeritageEtInterface
 {
     class FightManager
     {
+        public bool continueFight = true;
+        public bool fightEnded = false;
         public List<Character> charactersList = new List<Character>();
         public int round = 0;
         public DateTime startTime;
         public int StartNumberFighter = 0;
-
+        public ConsoleKeyInfo keyInfo;
         public FightManager(List<Character> charactersList, int round)
         {
             this.charactersList = charactersList;
@@ -23,7 +27,7 @@ namespace HeritageEtInterface
             }
         }
 
-        public void StartCombat()
+        public void StartCombat(bool waitInput = true)
         {
             startTime = DateTime.Now;
             round = 0;
@@ -34,6 +38,7 @@ namespace HeritageEtInterface
                 personnage.Reset();
             }
             MyLog("----- Debut du combat -----");
+            WaitInput(waitInput);
             //a commenter pour enchainer les rounds à la main
             //faire des rounds tant qu'il y a plus d'un combattant vivant
             while (charactersList.Count > 1)
@@ -42,10 +47,11 @@ namespace HeritageEtInterface
             }
         }
 
-        public void StartRound()
+        public void StartRound(bool waitInput = true)
         {
             round++;
             MyLog("---------- Round " + round + " ----------");
+            WaitInput(waitInput);
 
             foreach (Character p in charactersList)
             {
@@ -57,7 +63,7 @@ namespace HeritageEtInterface
 
             //classer les différents personnage en fonction de initiative
             charactersList = charactersList.OrderByDescending(personnage => personnage.CurrentInitiative).ToList();
-
+            WaitInput(waitInput);
             for (int i = 0; i < charactersList.Count; i++)
             {
                 //on stocke le personnage dans une variable pour éviter d'accéder inutilement à la liste
@@ -68,15 +74,21 @@ namespace HeritageEtInterface
                     while (currentPersonnage.CurrentAttackNumber > 0 && currentPersonnage.canAttack && currentPersonnage.CurrentAttackLoose == -1)
                     {
                         Console.WriteLine("Appuyez sur une touche pour la prochaine attaque !");
-                        Console.ReadKey();
-                        //choisir une cible puis attaquer
+                        keyInfo = Console.ReadKey(true);
+                        if (keyInfo.Key != ConsoleKey.S && keyInfo.Key != ConsoleKey.L)
+                        {
+                            //choisir une cible puis attaquer
                         currentPersonnage.SelectTargetAndAttack();
+                        }
+                        
+                        
                     }
                 }
                 else if (currentPersonnage.CurrentAttackNumber == 0 && currentPersonnage.CurrentLife > 0)
                 {
                     MyLog(currentPersonnage.Name + " n'a plus d'attaques disponibles et ne peut rien faire pendant ce round.");
                 }
+                WaitInput(waitInput);
             }
 
             int nbMorts = 0;
@@ -133,9 +145,60 @@ namespace HeritageEtInterface
             }
         }
 
+        
+
+        public void WaitInput(bool wait)
+        {
+            if (wait)
+            {
+                continueFight = false;
+                while (!continueFight)
+                {
+                    Console.WriteLine("OK!");
+                    Program.waitInput();
+                }
+            }
+        }
+
+        public void CombatReStart(bool waitInput = true)
+        {
+            fightEnded = false;
+            startTime = DateTime.Now;
+            StartNumberFighter = charactersList.Count;
+            //faire en sorte que les personnages ne soient pas blessé avant le début du combat
+            foreach (Character personnage in charactersList)
+            {
+                personnage.SetFightManager(this);
+            }
+            MyLog("----- Reprise du combat au round " + round + " -----");
+            //a commenter pour enchainer les rounds à la main
+            //faire des rounds tant qu'il y a plus d'un combattant vivant
+            while (charactersList.Count > 1)
+            {
+                StartRound(waitInput);
+            }
+
+            ManageVictory();
+        }
+
+        void ManageVictory()
+        {
+            fightEnded = true;
+            if (charactersList.Count == 1)
+            {
+                MyLog(charactersList[0].Name + " remporte le battle royale");
+            }
+            else if (charactersList.Count <= 0)
+            {
+                MyLog("Tout le monde est mort, il n'y a pas de vainqueur");
+            }
+        }
+
         public void MyLog(string text)
         {
             Console.WriteLine(text);
         }
+
+
     }
 }
