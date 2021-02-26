@@ -49,6 +49,11 @@ namespace HeritageEtInterface
         public override void TakeDamages(int _damages)
         {
             base.TakeDamages(_damages);
+            if(CurrentAttackLoose > -1)
+            {
+                CurrentAttackLoose = 0;
+                Console.WriteLine("Le guerrier " + this.Name + " ne peut plus attaquer pour ce round !");
+            }
         }
     }
 }

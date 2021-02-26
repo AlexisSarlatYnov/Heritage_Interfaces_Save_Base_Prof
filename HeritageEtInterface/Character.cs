@@ -156,7 +156,7 @@ namespace HeritageEtInterface
             {
                 //annoncer dans la console que le personnage a reussi sa defense
                 MyLog(Name + " réussi sa défense.");
-                if (_attacker != null && canAttack && canBeCountered && CurrentAttackNumber > 0)
+                if (_attacker != null && canAttack && canBeCountered && CurrentAttackNumber > 0 && CurrentAttackLoose == -1)
                 {
                     Counter(-AttaqueMargin, _attacker);
                 }
