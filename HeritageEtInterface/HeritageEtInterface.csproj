@@ -48,6 +48,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="FightManager.cs" />
     <Compile Include="Gardien.cs" />
+    <Compile Include="Goule.cs" />
     <Compile Include="Guerrier.cs" />
     <Compile Include="Liche.cs" />
     <Compile Include="Program.cs" />
