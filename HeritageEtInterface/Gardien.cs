@@ -8,8 +8,26 @@ namespace HeritageEtInterface
 {
     class Gardien : Character, CharacInterface
     {
+        public Gardien(string name, int maxAttackNumber)
+        {
+            Name = name;
+            Attack = 50;
+            Defense = 150;
+            Initiative = 50;
+            Damages = 50;
+            MaxLife = 150;
+            isUndead = false;
+            hitRadiantDamages = true;
+            hitNecroticDamages = false;
+            isBlessed = true;
+            isDamned = false;
+            isTokyoGhoul = false;
+            MaxAttackNumber = maxAttackNumber;
+            this.random = new Random(NameToInt() + (int)DateTime.Now.Ticks);
+        }
         public override void Counter(int _CounterBonus, Character Attacker)
         {
+            _CounterBonus = _CounterBonus * 2;
             base.Counter(_CounterBonus, Attacker);
         }
 
