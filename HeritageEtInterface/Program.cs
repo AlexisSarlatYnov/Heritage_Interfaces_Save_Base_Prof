@@ -30,9 +30,9 @@ namespace HeritageEtInterface
         public static void TestGuerrierInit()
         {
             //coucou
-            Guerrier Simon = new Guerrier("Simon", 2);
-            Guerrier Hector = new Guerrier("Hector", 2);
-            Guerrier Pierre = new Guerrier("Pierre", 2);
+            Berserker Simon = new Berserker("Simon", 2);
+            Berserker Hector = new Berserker("Hector", 2);
+            Guerrier Pierre = new Guerrier("Pierre", 4);
             Guerrier Paul = new Guerrier("Paul", 4);
             List<Character> characters = new List<Character> { Simon, Hector, Pierre, Paul };
             FightManager fightManager = new FightManager(characters, 0);
