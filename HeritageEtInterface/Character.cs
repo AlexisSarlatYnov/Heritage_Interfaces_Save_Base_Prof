@@ -103,7 +103,7 @@ namespace HeritageEtInterface
             CurrentAttackNumber = MaxAttackNumber;
         }
 
-        public int RollDice()
+        public virtual int RollDice()
         {
             return random.Next(1, 101);
         }
@@ -186,8 +186,8 @@ namespace HeritageEtInterface
                 if (this.isUndead == false && this.CurrentLife < _damages && this.CurrentAttackLoose == -1)
                 {
                     int chanceDePasAttaquer = (_damages - this.CurrentLife) * 2 / (this.CurrentLife + _damages) * 100;
-                    int percentLostAttack = random.Next(1, 101);
-                    if(percentLostAttack < chanceDePasAttaquer)
+                    int percentLostAttack = RollDice();
+                    if (percentLostAttack < chanceDePasAttaquer)
                     {
                         CurrentAttackLoose = random.Next(0, 3);
                         switch (CurrentAttackLoose)
