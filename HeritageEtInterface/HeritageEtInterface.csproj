@@ -49,8 +49,10 @@
     <Compile Include="FightManager.cs" />
     <Compile Include="Gardien.cs" />
     <Compile Include="Guerrier.cs" />
+    <Compile Include="Liche.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Zombie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

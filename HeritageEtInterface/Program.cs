@@ -30,10 +30,10 @@ namespace HeritageEtInterface
         public static void TestGuerrierInit()
         {
             //coucou
-            Berserker Simon = new Berserker("Simon", 2);
-            Berserker Hector = new Berserker("Hector", 2);
-            Guerrier Pierre = new Guerrier("Pierre", 4);
-            Guerrier Paul = new Guerrier("Paul", 4);
+            Zombie Simon = new Zombie("Simon", 2);
+            Zombie Hector = new Zombie("Hector", 2);
+            Zombie Pierre = new Zombie("Pierre", 2);
+            Zombie Paul = new Zombie("Paul", 2);
             List<Character> characters = new List<Character> { Simon, Hector, Pierre, Paul };
             FightManager fightManager = new FightManager(characters, 0);
             fightManager.StartCombat();
